@@ -213,6 +213,7 @@ function initForm() {
 
     const subject = `Заявка с сайта: ${name}`;
     const mailtoUrl = `mailto:${CONTACTS.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+    reachGoal("form_submit");
 
     if (CONTACTS.telegram) {
       const telegramUrl = `https://t.me/${CONTACTS.telegram}?text=${encodeURIComponent(message)}`;
@@ -246,6 +247,28 @@ function initYear() {
   if (year) year.textContent = String(new Date().getFullYear());
 }
 
+const METRIKA_ID = 113951839;
+
+function reachGoal(name) {
+  if (typeof window.ym === "function") window.ym(METRIKA_ID, "reachGoal", name);
+}
+
+function initAnalytics() {
+  const goals = [
+    ['a[href^="tel:"]', "phone_click"],
+    ['a[href^="https://t.me/"]', "telegram_click"],
+    ['a[href^="https://wa.me/"]', "whatsapp_click"],
+    ['a[href^="https://max.ru/"]', "max_click"],
+    ['a[href^="mailto:"]', "email_click"]
+  ];
+
+  goals.forEach(([selector, goal]) => {
+    document.querySelectorAll(selector).forEach((link) => {
+      link.addEventListener("click", () => reachGoal(goal));
+    });
+  });
+}
+
 applyContacts();
 initHeader();
 initNav();
@@ -253,4 +276,5 @@ initReveal();
 initPricing();
 initFaq();
 initForm();
+initAnalytics();
 initYear();
