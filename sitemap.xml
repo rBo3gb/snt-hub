@@ -21,6 +21,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://snt-hub.ru/oplata-vznosov/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://snt-hub.ru/golosovaniya/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://snt-hub.ru/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
