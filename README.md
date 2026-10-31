@@ -1,5 +1,3 @@
-# СНТ-Хаб — лендинг
+# SNT-Hub landing
 
-Статический сайт услуг «сайт для СНТ под ключ». Домен: https://snt-hub.ru
-
-Сборка: index.html, privacy.html, styles.css, script.js, assets/.
+Update: 2026-10-31T08:33:19.311Z
