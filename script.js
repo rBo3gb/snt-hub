@@ -6,6 +6,8 @@ const CONTACTS = {
   telegram: "Ant_Shishk",              // без @, куда ведёт ссылка
   telegramDisplay: "snt_hub",          // без @, что видно на сайте
   whatsapp: "79629574141",             // только цифры
+  max: "https://max.ru/u/f9LHodD0cOKhrMgB7TqAQbnVKpL1FBEVeNh7BCSqJ2XtUev40Wmx7AJauww",
+  maxDisplay: "Написать в MAX",
   email: "2282022@bk.ru",              // куда реально приходят письма
   emailDisplay: "info@snt-hub.ru",     // что видно на сайте
   phone: "+79629574141",               // для tel:
@@ -45,6 +47,12 @@ function applyContacts() {
 
   document.querySelectorAll('.contact-links a[href^="https://wa.me/"] strong').forEach((element) => {
     element.textContent = CONTACTS.phoneDisplay;
+  });
+
+  document.querySelectorAll('a[href^="https://max.ru/"]').forEach((link) => {
+    if (CONTACTS.max) link.setAttribute("href", CONTACTS.max);
+    const title = link.querySelector("strong");
+    if (title) title.textContent = CONTACTS.maxDisplay || "Написать в MAX";
   });
 }
 
